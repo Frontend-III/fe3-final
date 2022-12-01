@@ -26,6 +26,7 @@ Solo se podrán instalar las siguientes dependencias:
 - testing-library
 - react-router-dom
 - react-dom
+- axios (opcional para quienes quieran)
 
 ## Recomendaciones a Seguir
 
