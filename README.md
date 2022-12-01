@@ -16,7 +16,7 @@ Examen Final de Frontend III
 
 ## Requisitos
 
-Es indispensable clonar este proyecto en un repositorio privado, para poder trabajar de forma _individual_. No se aceptarán proyectos que se hayan realizado sin partir de este template. Para eso deberás crear un repositorio con el nombre "ctd-esp-fe3-final" en tu cuenta de Github y luego seguir los siguientes pasos en tu terminal
+Es indispensable clonar este proyecto en un repositorio privado, para poder trabajar de forma _individual_ o en _dupla_. No se aceptarán proyectos que se hayan realizado sin partir de este template. Para eso deberás crear un repositorio con el nombre "ctd-esp-fe3-final" en tu cuenta de Github y luego seguir los siguientes pasos en tu terminal
 
 ```
 # clona el repositorio del final en tu computadora
@@ -26,7 +26,7 @@ git clone https://github.com/Frontend-III/fe3-final
 cd fe3-final
 
 # elimina los links al repositorio de DH
-git remove rm origin
+git remove remote origin
 
 # Agrega el link al repositorio de tu cuenta de github, reemplaza <tuusuario> por tu cuenta
 git remote add origin https://github.com/<tuusuario>/fe3-final
