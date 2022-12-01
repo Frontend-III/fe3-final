@@ -52,15 +52,12 @@ Los siguientes aspectos son extras al requisito mínimo de aprobación que será
 
 **Validaciones**
 
-- Se valorará el agregado de validaciones de flujos alternativos al normal (mas de dos validaciones) y el correcto manejo de errores en las distintas situaciones.
+- Una validación para cada campor es suficiente, pueden ser "manuales" o con expreciones regulares. Lo importante es el correcto manejo de errores y submit.
 
 **Funcionalidad de destacados**
 
 - Se valorará funcionalidades extra a esta feature, como lo pueden ser el eliminar de destacadados, manejo de errores al intentar agregar repetidos y reseteo total de los destacados.
 
-**Testing unitario**
-
-- Se valorará el correcto uso del testing unitario y el incremento del numero de tests agregados (mas de 5 tests cases)
 
 **Estilos**
 
