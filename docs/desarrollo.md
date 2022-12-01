@@ -42,7 +42,7 @@ Una vez definidas las rutas demandadas por la consigna, pasemos a crear los comp
 - Recorda que para la página [/contacto](/docs/funcionalidades.md#pagina-2-contacto) deberás implementar un Form con sus validaciones
 - Para [/home](/docs/funcionalidades.md#pagina-1-inicio-home) mapear la información de la API y devolver una Card por cada dentista
   - Crear un Link dinámico para el detalle de cada dentista en [/dentista/:id](/docs/funcionalidades.md#pagina-3-detalle-dentista)
-  - Para [/destacados](/docs/funcionalidades.md#pagina-4-destacados) consumir la información del localStorage y devolver una Card por cada dentista destacado
+  - Para [/favs](/docs/funcionalidades.md#pagina-4-destacados) consumir la información del localStorage y devolver una Card por cada dentista destacado
 
 ### Paso 3: Implementación del Contexto Global
 
