@@ -1,47 +1,39 @@
 import React from "react";
-import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Card = ({ name, username, id }) => {
-  const [odontologos, setOdontologos] = React.useState([]);
-  useEffect(() => {
-    async function getOdontologo() {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        const json = await response.json();
-        setOdontologos(
-          json.map((odontologo) => {
-            return {
-              id: odontologo.id,
-              name: odontologo.name,
-              username: odontologo.username,
-            };
-          })
-        );
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    getOdontologo();
-  }, []);
+const Card = (props) => {
+  const navigate = useNavigate();
+
+  function handleClick(odontologoID) {
+    navigate(`./${odontologoID}`);
+  }
 
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4">
-      {odontologos.map((odontologo) => (
+    <div className="container grid grid-cols-4 gap-4 mx-auto px-4 ">
+      {props.odontologos.map((odontologo) => (
         <div
-          className="max-w-sm rounded overflow-hidden shadow-lg"
           key={odontologo.id}
+          className="scale-75 max-w-sm rounded-lg overflow-hidden shadow-lg  hover:-translate-y-2"
         >
-          <img className="w-full" src="./images/doctor.jpg" alt="Odontologo" />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{odontologo.username}</div>
-            <p class="text-gray-700 text-base truncate">{odontologo.name}</p>
-          </div>
+          <Link to={`/odontologo/${odontologo.id}`}>
+              <img
+                className="w-full"
+                src="./images/doctor.jpg"
+                alt="Odontologo"
+              />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">
+                  {odontologo.username}
+                </div>
+                <p className="text-gray-700 text-base truncate">
+                  {odontologo.name}
+                </p>
+              </div>
+          </Link>
 
           <div className="flex justify-center pb-5">
             <button
