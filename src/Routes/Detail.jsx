@@ -1,10 +1,26 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
- 
+const [dentist, setDentist] = React.useState(null);
+const params = useParams()
+
+useEffect(()=>{
+  async function getDentist(){
+    const data = await (await fetch(` jsonplaceholder.typicode.com/users/${params.id}`)).json()
+    setDentist(data);
+  }
+  if(params.id){
+  getDentist()
+  }
+},[params])
+
+
+
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   return (
