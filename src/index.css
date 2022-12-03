@@ -25,9 +25,15 @@ h1{
 
 nav{
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  padding: 25px 0;
+  background-color: #f0f0f0;
+}
+
+.links-navbar {
+  margin-left: 20px;
+  font-size: 1.2rem;
 }
 
 a{
@@ -36,6 +42,21 @@ a{
   margin: 5px;
   cursor: pointer;
 }
+
+.btn-theme {
+  margin-right: 20px;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+}
+
+.btn-theme:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
 a:hover{
   color: rgb(136, 136, 136);
 } 
@@ -68,6 +89,14 @@ form{
   width: 300px;
   height: 100px;
   margin: 0 auto;
+}
+.container-form {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-form {
@@ -121,6 +150,40 @@ form{
   width: 90%;
 }
 
+.container-card-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-detail {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.img-doc-detail {
+  width: 50%;
+}
+
+.btn-goback {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(196, 218, 255);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.btn-goback:hover {
+  cursor: pointer;
+  background-color: rgb(178, 206, 255);
+}
+
 table {
  border-collapse: collapse;
     border-spacing: 0;
@@ -140,10 +203,10 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
+#dark{
   background-color: #12121296;
   color: white;
 }
-.dark > a {
+#dark > a {
   color: white;
 }

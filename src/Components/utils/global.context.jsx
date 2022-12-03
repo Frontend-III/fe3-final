@@ -11,6 +11,10 @@ const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("light")
   const [dentist, setDentist] = useState([])
 
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
+
   const getDentist = () => {
     axios.get("https://jsonplaceholder.typicode.com/users")
     .then( res => setDentist(res.data) )
@@ -24,7 +28,8 @@ const ContextProvider = ({ children }) => {
   return (
     <ContextGlobal.Provider value={{
       dentist,
-      theme, setTheme
+      theme,
+      toggleTheme,
     }}>
       {children}
     </ContextGlobal.Provider>
