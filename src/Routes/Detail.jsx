@@ -25,10 +25,6 @@ const Detail = () => {
     getDetalleOdontologo();
   }, [paramsID]);
 
-  console.log(detalleOdontologo);
-
-  const imgStyle = {width: "260px" , height: "260px"}
-
   return (
     <>
       <h1>Detail Dentist id </h1>
@@ -37,8 +33,7 @@ const Detail = () => {
         <div className="w-full py-8 inline-grid justify-center">
           <h2 className="text-gray-800 text-center my-8">Información Odontologo</h2>
           <img
-            className="rounded-full mx-auto"
-            style={imgStyle}
+            className="rounded-full w-32 mb-4 mx-auto"
             src="../images/doctor.jpg"
             alt="Avatar"
           />
