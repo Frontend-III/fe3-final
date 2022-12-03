@@ -1,49 +1,53 @@
-import React, { useEffect } from "react";
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Link} from "react-router-dom";
 
+const Card = (props) => {
+  // const navigate = useNavigate();
 
-const Card = ({ name, username, id }) => {
-  const[dentist, setDentist]= React.useState([]);
-  const navigate = useNavigate();
+  // function handleClick(odontologoID) {
+  //   navigate(`./${odontologoID}`);
+  // }
 
-  const getData = useCallback(async(url, setState) =>{
-    const data = await (await fetch(url)).json()
-    setState(data.dentist)
-  },[])
-
-  useEffect(()=>{
-    getData("jsonplaceholder.typicode.com/users",setDentist)
-  },[getData])
-
-  function onClickDetail(id){
-    navigate(`dentist/${id}`)
-  }
-
-  const addFav = ()=>{
+  const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
-  
-  }
+  };
 
   return (
-    <div className="card">
-      {dentist?.map((dentist) => (
-      <div key={dentist.id} onClick={() => onClickDetail(dentist.id)}>
-        <p>{dentist.name}</p>
-        <p>{dentist.username}</p>
-        <p>{dentist.id}</p>
+    <div className="container grid grid-cols-4 gap-4 mx-auto px-4 ">
+      {props.odontologos.map((odontologo) => (
+        <div
+          key={odontologo.id} 
+          className="scale-75 max-w-sm rounded-lg overflow-hidden shadow-lg  hover:-translate-y-2"
+        >
+          <Link to={`/odontologo/${odontologo.id}`}>
+              <img
+                className="w-full"
+                src="./images/doctor.jpg"
+                alt="Odontologo"
+              />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">
+                  {odontologo.username}
+                </div>
+                <p className="text-gray-700 text-base truncate">
+                  {odontologo.name}
+                </p>
+              </div>
+          </Link>
 
-      <button onClick={addFav} className="favButton">Add fav</button>  
-      </div>
+          <div className="flex justify-center pb-5">
+            <button
+              onClick={addFav}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Add fav
+            </button>
+          </div>
+        </div>
       ))}
-
-
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        
+      {/* En cada card deberan mostrar en name - username y el id */}
+      {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
+      {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
     </div>
   );
 };
