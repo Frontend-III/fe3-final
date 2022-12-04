@@ -1,26 +1,28 @@
-import React from "react";
-import Card from "../Components/Card";
-
-import { useContextGlobal } from "../Components/utils/global.context";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CardO from "../Components/CardO";
+import styles from "../Home.module.css";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-	const { odontologos, setOdontologos } = useContextGlobal();
-	const { name, username, id } = odontologos;
-	return (
-		<main className="">
-			<h1>Home</h1>
+	const [odontologos, setOdontologos] = useState([]);
 
-			<div className="card-grid">
-				<Card
-					name={name}
-					username={username}
-					id={id}
-					odontologos={odontologos}
-				/>
+	useEffect(() => {
+		axios
+			.get("https://jsonplaceholder.typicode.com/users")
+			.then((res) => setOdontologos(res.data))
+			.catch((err) => console.log(err));
+	}, []);
+
+	return (
+		<>
+			<div className={styles.containerCards}>
+				{odontologos.map((odontologo) => {
+					return <CardO key={odontologo.id} odontologo={odontologo} />;
+				})}
 			</div>
-		</main>
+		</>
 	);
 };
 
