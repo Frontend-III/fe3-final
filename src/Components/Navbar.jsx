@@ -17,7 +17,7 @@ const Navbar = ({}) => {
 						alignItems: "center",
 					}}
 				>
-					<div>Clinica Keep Smiling</div>
+					<div>Clinica Keep-Smiling</div>
 					<div>
 						<Link to="/">Home </Link>
 						<Link to="/contact">Contact </Link>
