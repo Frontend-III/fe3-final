@@ -1,17 +1,29 @@
-import React from 'react'
-import Card from '../Components/Card'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import CardO from "../Components/CardO";
+import styles from "../Home.module.css";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  return (
-    <main className="" >
-      <h1>Home</h1>
-      <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */}
-      </div>
-    </main>
-  )
-}
+	const [odontologos, setOdontologos] = useState([]);
 
-export default Home
+	useEffect(() => {
+		axios
+			.get("https://jsonplaceholder.typicode.com/users")
+			.then((res) => setOdontologos(res.data))
+			.catch((err) => console.log(err));
+	}, []);
+
+	return (
+		<>
+			<div className={styles.containerCards}>
+				{odontologos.map((odontologo) => {
+					return <CardO key={odontologo.id} odontologo={odontologo} />;
+				})}
+			</div>
+		</>
+	);
+};
+
+export default Home;
