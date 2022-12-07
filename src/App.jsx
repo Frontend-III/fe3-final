@@ -8,6 +8,8 @@ import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 
 function App() {
+
+  
   return (
       <div className="App">
           <Navbar/>

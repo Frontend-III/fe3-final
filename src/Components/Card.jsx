@@ -1,6 +1,5 @@
 import React from "react";
 import { useContext } from "react";
-import { useState } from "react";
 import { Link} from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
 
@@ -10,21 +9,14 @@ import { ContextGlobal } from "./utils/global.context";
 const Card = ({odontologo}) => {
 
 const {setFavs, favs} = useContext(ContextGlobal)
-const [active, setActive] = useState(false)
 
 
 
-  const addFav = () =>{
-
-
-    
+  const addFav = () =>{  
 setFavs([
   ...favs, 
   odontologo,])
 console.log(favs)
-
-
-
 };
 
 
@@ -57,9 +49,9 @@ return (
           <div className="flex justify-center pb-5">
             <button
               onClick={ () => {
-                addFav()
-                setActive(!active)}} 
-              className={`"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" ${active ? "active"  :""}`}
+                addFav()}}
+              
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         
             >
               Add fav
