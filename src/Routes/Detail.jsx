@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ContextGlobal } from "../Components/utils/global.context";
 
 
 
@@ -10,43 +11,32 @@ const Detail = () => {
 
   const params = useParams();
   const paramsID = JSON.parse(params.id);
-  const [detalleOdontologo, setDetalleOdontologos] = useState([]);
+  const detalleOdontologo = useContext(ContextGlobal);
 
-  useEffect(() => {
-    async function getDetalleOdontologo() {
-      try {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/users/${paramsID}`
-        );
-        const detalleOdontologo = await response.json();
-        setDetalleOdontologos(detalleOdontologo);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    getDetalleOdontologo();
-  }, [paramsID]);
+  const objetoOdontologos = [...detalleOdontologo.odontologos];
+  const odontologoDetalle = objetoOdontologos[paramsID - 1];
+
 
 
   return (
     <>
       <h1>Detail Dentist id </h1>
 
-      <div className="container mx-auto">
-        <div className="w-full py-8 inline-grid justify-center">
-          <h2 className="text-gray-800 text-center my-8">Información Odontologo</h2>
+      <div className="container flex justify-center mx-auto">
+        <div className="rounded-lg shadow-lg p-8 inline-grid justify-center">
+          <h2 className="text-gray-800 text-center text-2xl my-8 overline">
+            Información Odontologo
+          </h2>
           <img
             className="rounded-full w-32 mb-4 mx-auto"
             src="../images/doctor.jpg"
             alt="Avatar"
           />
-          <h3 className="text-xl font-medium leading-tight mb-2">
-            {detalleOdontologo.name}
-          </h3>
-          <p className="text-gray">{detalleOdontologo.email}</p>
-          <div>{detalleOdontologo.phone}</div>
-          <Link to={detalleOdontologo.website}>
-            {detalleOdontologo.website}
+          <h2 className="text-center text-xl font-extrabold">{odontologoDetalle?.name || "Cargando..."}</h2>
+          <p className="text-gray text-center"><span className="font-thin">Email:</span> {odontologoDetalle?.email }</p>
+          <div className="text-center"> <span className="font-thin"> Télefono:</span> {odontologoDetalle?.phone }</div>
+          <Link to={odontologoDetalle?.website} className="text-center">
+            <span className="font-thin">website: </span>{odontologoDetalle?.website}
           </Link>
         </div>
       </div>

@@ -12,11 +12,8 @@ const {setFavs, favs} = useContext(ContextGlobal)
 
 
 
-  const addFav = () =>{  
-setFavs([
-  ...favs, 
-  odontologo,])
-console.log(favs)
+const addFav = () =>{  
+setFavs([...favs, odontologo,])
 };
 
 

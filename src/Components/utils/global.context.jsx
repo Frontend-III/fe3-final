@@ -1,10 +1,5 @@
-
 import { useEffect } from "react";
-import { createContext, useState} from "react";
-
-
-
-
+import { createContext, useState } from "react";
 
 export const ContextGlobal = createContext();
 
@@ -18,14 +13,10 @@ export const ContextGlobal = createContext();
 //   }
 // };
 
-
-
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const [favs, setFavs] = useState([]);
   const [odontologos, setOdontologos] = useState([]);
-
-
 
   useEffect(() => {
     async function getOdontologo() {
@@ -40,6 +31,9 @@ export const ContextProvider = ({ children }) => {
               id: odontologo.id,
               name: odontologo.name,
               username: odontologo.username,
+              phone: odontologo.phone,
+              email: odontologo.email,
+              website: odontologo.website,
             };
           })
         );
@@ -52,29 +46,17 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     const obtenerFavs = localStorage.getItem("card");
-    const list = obtenerFavs ? JSON.parse(obtenerFavs): []
-      setFavs(list)
-  
-  },[])
+    const list = obtenerFavs ? JSON.parse(obtenerFavs) : [];
+    setFavs(list);
+  }, []);
 
-  useEffect(()=>{
-    localStorage.setItem("favs",JSON.stringify(favs))
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(favs));
+  }, [favs]);
 
-  },[favs])
-
-
-
-
-
-
-
-  
-
-return (
-  <ContextGlobal.Provider value={{odontologos, 
-      favs,setFavs,
-    }}>
-    {children}
-  </ContextGlobal.Provider>
+  return (
+    <ContextGlobal.Provider value={{ odontologos, favs, setFavs }}>
+      {children}
+    </ContextGlobal.Provider>
   );
-}
+};

@@ -18,13 +18,12 @@ const {favs} = useContext(ContextGlobal);
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
-        {favs.map((odontologo) => {
-        return(
+        {favs.map((odontologo) => (
         <div
-        key={odontologo.id} 
-        className="scale-75 max-w-sm rounded-lg overflow-hidden shadow-lg  hover:-translate-y-2"
+          key={odontologo.id} 
+          className="scale-75 max-w-sm rounded-lg overflow-hidden shadow-lg  hover:-translate-y-2"
         >
-          <Link to={`/odontologo/${odontologo.id}`} key={odontologo.id}>
+          <Link to={`/odontologo/${odontologo.id}`}>
               <img
                 className="w-full"
                 src="./images/doctor.jpg"
@@ -43,7 +42,7 @@ const {favs} = useContext(ContextGlobal);
               </div>
           </Link>
           </div>
-          )})}
+          ))}
       
       </div>
     </>
