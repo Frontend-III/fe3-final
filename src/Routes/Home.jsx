@@ -12,7 +12,7 @@ const{odontologos}= useContext(ContextGlobal)
   return (
     <main className="">
       <h1 className="text-3xl font-bold underline">Home</h1>
-      <Card odontologos={odontologos}/>
+      {odontologos.map ( odontologos=>(<Card key={odontologos.id} odontologo={odontologos}/>))}
       {/* Aqui deberias renderizar las cards */}
     </main>
   );

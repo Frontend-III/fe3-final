@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
+
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -8,7 +10,7 @@ const Detail = () => {
 
   const params = useParams();
   const paramsID = JSON.parse(params.id);
-  const [detalleOdontologo, setDetalleOdontologos] = React.useState([]);
+  const [detalleOdontologo, setDetalleOdontologos] = useState([]);
 
   useEffect(() => {
     async function getDetalleOdontologo() {
@@ -24,6 +26,7 @@ const Detail = () => {
     }
     getDetalleOdontologo();
   }, [paramsID]);
+
 
   return (
     <>
