@@ -1,9 +1,5 @@
-
 import { useEffect } from "react";
-import { createContext, useState} from "react";
-
-
-export const initialState = {theme: "", data: []}
+import { createContext, useState } from "react";
 
 export const ContextGlobal = createContext();
 
@@ -16,7 +12,6 @@ export const ContextGlobal = createContext();
 //       throw new Error();
 //   }
 // };
-
 
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
@@ -37,6 +32,9 @@ export const ContextProvider = ({ children }) => {
               id: odontologo.id,
               name: odontologo.name,
               username: odontologo.username,
+              phone: odontologo.phone,
+              email: odontologo.email,
+              website: odontologo.website,
             };
           })
         );
@@ -49,26 +47,18 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     const obtenerFavs = JSON.parse(localStorage.getItem("card"));
-    if(obtenerFavs){
-      setFavs(obtenerFavs)
+    if (obtenerFavs) {
+      setFavs(obtenerFavs);
     }
-  },[])
+  }, []);
 
-  useEffect(()=>{
-    localStorage.setItem("card",JSON.stringify(favs))
+  useEffect(() => {
+    localStorage.setItem("card", JSON.stringify(favs));
+  }, [favs]);
 
-  },[favs])
-
-
-
-
-  
-
-return (
-  <ContextGlobal.Provider value={{odontologos,
-      favs,setFavs
-    }}>
-    {children}
-  </ContextGlobal.Provider>
+  return (
+    <ContextGlobal.Provider value={{ odontologos, favs, setFavs }}>
+      {children}
+    </ContextGlobal.Provider>
   );
-}
+};
