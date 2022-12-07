@@ -11,7 +11,7 @@ function App() {
 
   
   return (
-      <div className="App">
+      <div className="min-h-[40rem]">
           <Navbar/>
           <Routes>
             <Route path='/'></Route>
