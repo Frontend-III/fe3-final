@@ -1,0 +1,9 @@
+.img_card{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -8,7 +8,14 @@ const Contact = () => {
     <div>
       <h2>Want to know more?</h2>
       <p>Send us your questions and we will contact you</p>
-      <Form/>
+      <form>
+          <label htmlFor="name">Nombre:</label>
+          <input type="text" name='name' placeholder='Nombre' minLength={5} />
+
+          <label htmlFor="email">Email:</label>
+          <input type="email" name='email'placeholder='Email' />
+
+      </form>
     </div>
   )
 }
