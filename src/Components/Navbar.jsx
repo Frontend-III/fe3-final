@@ -2,15 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, MoonIcon, XMarkIcon } from '@heroicons/react/24/outline'
+
+
+
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const navigation = [
   { name: 'Home', href: '/home', current: true },
   { name: 'Contacto', href: '/contacto', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Favoritos', href: '/favs', current: false },
 ]
 
 function classNames(...classes) {
@@ -84,7 +86,7 @@ const Navbar = () => {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <MoonIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
