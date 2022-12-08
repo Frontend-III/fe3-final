@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, MoonIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ContextGlobal } from "./utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const navigation = [
-  { name: "Home", href: "/home", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "Favoritos", href: "/favs", current: false },
   { name: "Contacto", href: "/contacto", current: false },
 ];
@@ -15,16 +16,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+const imgDH = { img: "./images/doctor.jpg" };
+
 const Navbar = () => {
+  const { dispatch } = useContext(ContextGlobal);
+
   return (
     <nav>
-      {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      {/* <Link to="/home">Home</Link>
-      <Link to="/contacto">Contacto</Link>
-      <Link to="/favs">Favs</Link> */}
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      {/* <button>Change theme</button> */}
-
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>
@@ -46,14 +44,14 @@ const Navbar = () => {
                     <Link to="/">
                       <img
                         className="block h-8 w-auto rounded-full lg:hidden"
-                        src="./images/doctor.jpg"
+                        src={imgDH?.img}
                         alt="DH"
                       />
                     </Link>
                     <Link to="/">
                       <img
                         className="hidden h-8 w-auto rounded-full lg:block"
-                        src="./images/doctor.jpg"
+                        src={imgDH?.img}
                         alt="DH"
                       />
                     </Link>
@@ -85,7 +83,11 @@ const Navbar = () => {
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Change Theme</span>
-                    <MoonIcon className="h-6 w-6" aria-hidden="true" />
+                    <MoonIcon
+                      onClick={() => dispatch({ type: "theme" })}
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                    />
                   </button>
                 </div>
               </div>

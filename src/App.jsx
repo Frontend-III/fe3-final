@@ -14,8 +14,7 @@ function App() {
       <div className="min-h-[40rem]">
           <Navbar/>
           <Routes>
-            <Route path='/'></Route>
-              <Route path='home' element={<Home/>}></Route>
+              <Route path='/' element={<Home/>}></Route>
               <Route path='odontologo/:id' element={<Detail/>}></Route>
               <Route path='contacto' element={<Contact/>}></Route>
               <Route path='favs' element={<Favs/>}></Route>
