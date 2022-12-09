@@ -1,22 +1,23 @@
-import { useEffect } from "react";
-import { createContext, useState } from "react";
+import React, { useState, useEffect, createContext, useReducer } from "react";
 
 export const ContextGlobal = createContext();
 
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "theme":
-//       return { theme: state.theme === "light" ? "dark" : "light" };
+const initialState = { theme: "light" };
 
-//     default:
-//       throw new Error();
-//   }
-// };
+function reducer(state, action) {
+  switch (action.type) {
+    case "theme":
+      return { theme: state.theme === "light" ? "dark" : "light" };
+    default:
+      throw new Error();
+  }
+}
 
 export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-  const [favs, setFavs] = useState([]);
+  //Aqui deberan implementar la logica propia del Context
   const [odontologos, setOdontologos] = useState([]);
+
+  const [theme, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     async function getOdontologo() {
@@ -44,18 +45,11 @@ export const ContextProvider = ({ children }) => {
     getOdontologo();
   }, []);
 
-  useEffect(() => {
-    const obtenerFavs = localStorage.getItem("card");
-    const list = obtenerFavs ? JSON.parse(obtenerFavs) : [];
-    setFavs(list);
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("favs", JSON.stringify(favs));
-  }, [favs]);
+
 
   return (
-    <ContextGlobal.Provider value={{ odontologos, favs, setFavs }}>
+    <ContextGlobal.Provider value={{ odontologos, theme, dispatch }}>
       {children}
     </ContextGlobal.Provider>
   );
