@@ -14,8 +14,7 @@ function reducer(state, action) {
 }
 
 export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-  const [favs, setFavs] = useState([]);
+  //Aqui deberan implementar la logica propia del Context
   const [odontologos, setOdontologos] = useState([]);
 
   const [theme, dispatch] = useReducer(reducer, initialState);
@@ -46,18 +45,11 @@ export const ContextProvider = ({ children }) => {
     getOdontologo();
   }, []);
 
-  useEffect(() => {
-    const obtenerFavs = localStorage.getItem("card");
-    const list = obtenerFavs ? JSON.parse(obtenerFavs) : [];
-    setFavs(list);
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("favs", JSON.stringify(favs));
-  }, [favs]);
+
 
   return (
-    <ContextGlobal.Provider value={{ odontologos, favs, setFavs, theme, dispatch }}>
+    <ContextGlobal.Provider value={{ odontologos, theme, dispatch }}>
       {children}
     </ContextGlobal.Provider>
   );

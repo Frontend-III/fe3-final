@@ -6,15 +6,20 @@ import { Link } from "react-router-dom";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
-  const { favs } = useContext(ContextGlobal);
+  const { theme } = useContext(ContextGlobal);
+  const favs = localStorage.getItem("card");
+  const list = favs ? JSON.parse(favs) : [];
+  
 
   return (
-    <div className="min-h-[40rem]">
+    <div className={`min-h-[40rem] ${
+    theme.theme === "dark" ? "bg-slate-500" : "bg-salate-100"
+    }`}>
       <h1 className="text-3xl text-center font-bold underline py-6">Dentists Favs</h1>
       <div className="container grid grid-cols-4 gap-4 mx-auto ">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
-        {favs.map((odontologo) => (
+        {list.map((odontologo) => (
           <div
             key={odontologo.id}
             className="scale-75 max-w-sm rounded-lg overflow-hidden shadow-lg  hover:-translate-y-2"

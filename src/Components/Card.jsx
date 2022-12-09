@@ -1,13 +1,16 @@
 import React from "react";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ContextGlobal } from "./utils/global.context";
+
 
 const Card = ({ odontologo }) => {
-  const { setFavs, favs } = useContext(ContextGlobal);
+
+  
 
   const addFav = () => {
-    setFavs([...favs, odontologo]);
+    const obtenerFavs = localStorage.getItem("card");
+    const list = obtenerFavs ? JSON.parse(obtenerFavs) : [];
+    list.push({id: odontologo.id, username: odontologo.username, name:odontologo.name})
+    localStorage.setItem("card", JSON.stringify(list));
   };
 
   return (

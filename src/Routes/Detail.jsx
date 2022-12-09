@@ -10,12 +10,15 @@ const Detail = () => {
   const params = useParams();
   const paramsID = JSON.parse(params.id);
   const detalleOdontologo = useContext(ContextGlobal);
+  const theme = useContext(ContextGlobal);
 
   const objetoOdontologos = [...detalleOdontologo.odontologos];
   const odontologoDetalle = objetoOdontologos[paramsID - 1];
 
   return (
-    <div className="h-[40rem]">
+    <div className={`h-[40rem] ${
+      theme.theme.theme === "dark" ? "bg-slate-500" : "bg-salate-100"
+    }`}>
       <h1 className="text-3xl text-center font-bold underline py-6">
         Detail Dentist id
       </h1>

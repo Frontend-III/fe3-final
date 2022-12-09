@@ -5,7 +5,7 @@ const imgDH = {height: "60px", width: "260px"}
 const Footer = () => {
   return (
     <footer className="text-center bg-gray-800 text-white">
-      <div className="container px-6 pt-6">
+      <div className="container-fluid pt-6">
         <div className="flex justify-center mb-6">
           <a
             href="#!"
