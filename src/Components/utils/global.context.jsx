@@ -44,7 +44,7 @@ const clearFavorites = () => {
     localStorage.removeItem("favorite-dentists");
     return [];
 };
-export const reducer = async (state, action) => {
+export const reducer = (state, action) => {
     switch (action.type) {
         case "SWITCH_THEME":
             return {
