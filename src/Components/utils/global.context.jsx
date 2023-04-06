@@ -28,10 +28,7 @@ export const isFavorite = (id) => {
 
 const addFavoriteDentist = (d) => {
     let favoriteDentists = getFavoriteDentists();
-    if(isFavorite(d.id)) {
-        console.log("dentists already a favorite");
-        return;
-    }
+    if (isFavorite(d.id)) return;
     favoriteDentists.push({name: d.name, username: d.username, id: d.id, email: d.email, phone: d.phone, website: d.website})
     localStorage.setItem("favorite-dentists", JSON.stringify(favoriteDentists));
     return favoriteDentists;
