@@ -54,27 +54,25 @@ export const reducer = (state, action) => {
         case "ADD_FAVORITE":
             return {
                 ...state,
-                favorites: addFavoriteDentist(action.payload)
+                favs: addFavoriteDentist(action.payload)
             };
         case "REMOVE_FAVORITE":
             return {
                 ...state,
-                favorites: removeFavoriteDentist(action.payload)
+                favs: removeFavoriteDentist(action.payload)
             }
         case "CLEAR_FAVORITES":
             return {
                 ...state,
-                favorites: clearFavorites()
+                favs: clearFavorites()
             }
         default:
             return state;
     }
 };
-
-const data = loadDentists();
 export const initialState = {
     theme: "dark",
-    dentists: data,
+    dentists: loadDentists(),
     favs: getFavoriteDentists()
 }
 
