@@ -1,4 +1,4 @@
-import {createContext, useMemo, useReducer} from "react";
+import {createContext} from "react";
 
 const loadDentists = () => {
     const localDentists = localStorage.getItem("dentists");
@@ -15,10 +15,6 @@ const loadDentists = () => {
         console.log("local dentists were found!");
         return JSON.parse(localDentists);
     }
-}
-
-const loadFavoriteDentists = () => {
-    return getFavoriteDentists() ;
 }
 
 function getFavoriteDentists() {
@@ -83,7 +79,7 @@ const data = loadDentists();
 export const initialState = {
     theme: "dark",
     dentists: data,
-    favs: loadFavoriteDentists()
+    favs: getFavoriteDentists()
 }
 
 export const ContextGlobal = createContext();
