@@ -34,7 +34,6 @@ const addFavoriteDentist = (d) => {
     return favoriteDentists;
 };
 const removeFavoriteDentist = (id) => {
-    //check if its fav already
     let favoriteDentists = getFavoriteDentists();
     let index = favoriteDentists.findIndex(dentist => dentist.id = id)
     favoriteDentists.splice(index, 1);
