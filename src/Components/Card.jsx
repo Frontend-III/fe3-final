@@ -17,7 +17,7 @@ const Card = ({ name, username, id, email, phone, website }) => {
         {phone && <p>{phone}</p>}
         {website && <p>{website}</p>}
         <Link to={`/dentist/${id}`}>Detalles</Link>
-        <button onClick={handleFavorites} className="favButton">Add fav</button>
+        <button onClick={handleFavorites} className={isFavorite(id) ? "is-fav-btn" : "favButton"}>{isFavorite(id) ? "Remover favorito" : "Agregar favorito"}</button>
     </div>
   );
 };
