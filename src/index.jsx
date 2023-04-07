@@ -7,7 +7,7 @@ import ErrorPage from "./error-page";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
-import Dentist from "./Routes/Dentist";
+import Detail from "./Routes/Detail";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "dentist/:id",
-                element: <Dentist />,
+                element: <Detail />,
             },
             {
                 path: "contact",

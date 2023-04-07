@@ -1,12 +1,14 @@
 import React, {useContext} from "react";
 import {Link} from "react-router-dom";
-import {ContextGlobal, isFavorite} from "./utils/global.context";
+import {ContextGlobal} from "./utils/global.context";
 
 
 const Card = ({ name, username, id, email, phone, website }) => {
- const { state, dispatch } = useContext(ContextGlobal);
+    const { state, dispatch } = useContext(ContextGlobal);
+    const fav = state.favs.some((d) => d.id === id)
     const handleFavorites = () => {
-        return isFavorite(id) ? dispatch({type: "REMOVE_FAVORITE", payload: id}) : dispatch({type: "ADD_FAVORITE", payload: {name, username, id, email, phone, website}});
+        console.log("clicked");
+        fav ? dispatch({type: "REMOVE_FAVORITE", payload: id}) : dispatch({type: "ADD_FAVORITE", payload: {name, username, id, email, phone, website}});
     };
     return (
     <div className="card">
@@ -17,7 +19,7 @@ const Card = ({ name, username, id, email, phone, website }) => {
         {phone && <p>{phone}</p>}
         {website && <p>{website}</p>}
         <Link to={`/dentist/${id}`}>Detalles</Link>
-        <button onClick={handleFavorites} className={isFavorite(id) ? "is-fav-btn" : "favButton"}>{isFavorite(id) ? "Remover favorito" : "Agregar favorito"}</button>
+        <button onClick={handleFavorites} className={fav ? "is-fav-btn" : "favButton"}>{fav ? "Remover favorito" : "Agregar favorito"}</button>
     </div>
   );
 };
