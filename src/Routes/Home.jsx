@@ -10,7 +10,14 @@ const Home = () => {
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-        {state.dentists && state.dentists.map(d => <Card key={d.id} name={d.name} username={d.username} id={d.id}/>)}
+        {state.dentists && state.dentists.map(d =>
+            <Card
+                key={d.id}
+                name={d.name}
+                username={d.username}
+                id={d.id}
+            />
+        )}
       </div>
     </main>
   )
