@@ -120,3 +120,12 @@ tr:nth-child(even) {
 .dark, .bg-dark > a {
   color: white;
 }
+
+.is-fav-btn {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
