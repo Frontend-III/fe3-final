@@ -7,7 +7,7 @@ const Home = () => {
     const { state } = useContext(ContextGlobal);
 
     return (
-    <main className="" >
+    <main className={state.theme === "light" ? "home-dark" : "home-light"} >
       <h1>Home</h1>
       <div className='card-grid'>
         {state.dentists && state.dentists.map(d => {
