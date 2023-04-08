@@ -50,20 +50,20 @@ const Form = () => {
           onChange={(e) => setName(e.target.value)}
           type="text"
         />
-        {errors.name && <label>{errors.name}</label>}
+        {errors.name && <label className={"error-message"}>{errors.name}</label>}
         <input
           placeholder={"hola@hola.com"}
           required
           onChange={(e) => setEmail(e.target.value)}
           type="email"
         />
-        {errors.email && <label>{errors.email}</label>}
+        {errors.email && <label className={"error-message"}>{errors.email}</label>}
         <input
           placeholder={"3153123212"}
           onChange={(e) => setTel(e.target.value)}
           type="tel"
         />
-        {errors.tel && <label>{errors.tel}</label>}
+        {errors.tel && <label className={"error-message"}>{errors.tel}</label>}
         <textarea
           placeholder={"Los contacto porque..."}
           required
@@ -73,10 +73,8 @@ const Form = () => {
           cols="30"
           rows="10"
         ></textarea>
-        {errors.textArea && <label>{errors.textArea}</label>}
-        {Object.keys(errors).length === 0 && (
-          <input type="submit" value={"Enviar"} />
-        )}
+        {errors.textArea && <label className={"error-message"}>{errors.textArea}</label>}
+        <input id={"submit-form-btn"} className={Object.keys(errors).length === 0 ? "btn-valid" : "btn-invalid"} type="submit" value={"Enviar"} />
       </form>
     </div>
   );
