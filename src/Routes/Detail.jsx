@@ -9,17 +9,16 @@ const Detail = () => {
 
   return (
     <div className={state.theme === "light" ? "card-grid-dark" : "card-grid"}>
-        <Card
-      id={dentist.id}
-      username={dentist.username}
-      name={dentist.name}
-      email={dentist.email}
-      phone={dentist.phone}
-      website={dentist.website}
-      isInDetails={true}
-    />
+      <Card
+        id={dentist.id}
+        username={dentist.username}
+        name={dentist.name}
+        email={dentist.email}
+        phone={dentist.phone}
+        website={dentist.website}
+        isInDetails={true}
+      />
     </div>
-    
   );
 };
 

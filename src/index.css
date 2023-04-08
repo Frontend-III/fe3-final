@@ -42,7 +42,7 @@ nav button {
   width: 50px;
 }
 
-.nav-contact a{
+.nav-contact a {
   padding: 1rem;
 }
 
@@ -265,4 +265,3 @@ tr:nth-child(even) {
 .home-dark .card-content {
   background-color: rgb(255, 255, 255);
 }
-
