@@ -1,7 +1,7 @@
 export const myRoutes = {
     home: '/',
     contact: '/contact',
-    detail: '/detail',
+    detail: '/detail/',
     favs: '/favs',
     pageNotFound: '*',
 }
