@@ -1,16 +1,22 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { myRoutes } from '../Routes/utilties/myRoutes';
+import ThemeContext from '../Context/ThemeContext/themeContext';
 
 const Card = ({ item }) => {
   const { name, username, id } = item;
+  const { theme } = useContext(ThemeContext);
 
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
   };
 
   return (
-    <Link className="card" to={`${myRoutes.detail}${item.id}`}>
+    <Link
+      className="card"
+      to={`${myRoutes.detail}${item.id}`}
+      style={{ background: theme.background, color: theme.font }}
+    >
       {/* <Link className="card" to={myRoutes.detail}> */}
       <img src="./images/doctor.jpg" alt="" style={{ width: '80px' }} />
       <h1>{name}</h1>
