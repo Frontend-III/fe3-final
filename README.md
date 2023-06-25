@@ -1,5 +1,7 @@
 # ctd-fe3-final
 
+# Vicente Dalle Luche y Fernando Pioli Martínez
+
 Examen Final de Frontend III
 
 ## Indice
@@ -57,7 +59,6 @@ Los siguientes aspectos son extras al requisito mínimo de aprobación que será
 **Funcionalidad de destacados**
 
 - Se valorará funcionalidades extra a esta feature, como lo pueden ser el eliminar de destacadados, manejo de errores al intentar agregar repetidos y reseteo total de los destacados.
-
 
 **Estilos**
 
