@@ -9,19 +9,29 @@ const Navbar = () => {
   const { theme, handleChangeTheme } = useContext(ThemeContext);
   return (
     <nav>
-      <ul className="navbar-nav mb-2 mb-sm-0">
-        <li className={`nav-item ${styles.navBarLink}`}>
-          <Link className="nav-link" to={myRoutes.home}>
-            Home
-          </Link>
-          <Link className="nav-link" to={myRoutes.contact}>
-            Contact
-          </Link>
-          <Link className="nav-link" to={myRoutes.favs}>
-            Favs
-          </Link>
-        </li>
-      </ul>
+      <div className={styles.navbarLinksContainer}>
+        <Link
+          className={styles.navbarBrand}
+          to={myRoutes.home}
+          style={{ background: theme.background, color: theme.font }}
+        >
+          Home
+        </Link>
+        <Link
+          className={styles.navbarBrand}
+          to={myRoutes.contact}
+          style={{ background: theme.background, color: theme.font }}
+        >
+          Contact
+        </Link>
+        <Link
+          className={styles.navbarBrand}
+          to={myRoutes.favs}
+          style={{ background: theme.background, color: theme.font }}
+        >
+          Favs
+        </Link>
+      </div>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <button

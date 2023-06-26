@@ -1,5 +1,10 @@
 .navbarBrand {
-  font-size: 30px;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.navbarLinksContainer {
+  width: 100%;
 }
 
 .navbarBrand::first-letter {
@@ -15,7 +20,7 @@
   font-weight: 700;
 }
 
-.btnStyle{
+.btnStyle {
   width: 3rem;
   height: 3rem;
 }
