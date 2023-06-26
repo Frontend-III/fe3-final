@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      <ul >
+      <ul>
         <li>
           <Link className="nav-link" to={myRoutes.home}>
             Home
