@@ -23,11 +23,33 @@ h1{
   text-align: center;
 }
 
-nav{
+/* nav{
   display: flex;
   width: 80vw;
   justify-content: flex-start;
   padding: 1rem;
+} */
+
+nav li{
+  display: flex;
+  width: 80vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.button-theme {
+  
+  border-radius: 7px;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0 1rem;
 }
 
 a{

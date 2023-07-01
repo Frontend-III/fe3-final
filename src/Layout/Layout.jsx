@@ -1,17 +1,19 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
+import { Outlet } from 'react-router-dom';
+import { useThemeStates } from '../Context/ThemeContext/ThemeContext';
 
-const Layout = ({ children}) => {
-    return (
-        <div>
-            <Navbar />
-            <Outlet />
-            {children}
-            <Footer />
-        </div>
-    )
-}
+const Layout = ({ children }) => {
+  const { theme } = useThemeStates();
 
-export default Layout
+  return (
+    <div style={{ background: theme.background, color: theme.font }}>
+      <div style={{ margin: '0 auto' }}>
+      
+        <Outlet /> {/*Ej: si estoy en /contacto va a mostrar <Contact/> */}
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default Layout;
