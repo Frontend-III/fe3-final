@@ -264,7 +264,6 @@ a:hover {
 
 .card img {
   border-image: round;
-  border-radius: 60px;
   width: 80%;
   align-self: center;
 }
